@@ -31,6 +31,8 @@ ggplot(data = mpg) +
 
 #-------------------------------------------------------------------------------------------
 #“The greatest value of a picture is when it forces us to notice what we never expected to see.” — John Tukey
+#--------------------------------------------------------------------------------------------
+#Aesthetics
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 
@@ -72,10 +74,12 @@ ggplot(data = mpg) +
 #set the aesthetic by name as an argument of your geom function; i.e. it goes outside of aes().
 
 
+
+
+#Exercises
 #What is wrong here?????
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
-
 
 
 #What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ < 5)? 
