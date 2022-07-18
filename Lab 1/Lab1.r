@@ -97,3 +97,6 @@ barplot(airquality$Ozone, main = 'Ozone Concenteration in air',xlab = 'ozone lev
 hist(airquality$Solar.R)
 boxplot(airquality$Solar.R)
 boxplot(airquality[,0:4], main='Multiple Box plots')
+
+
+#Refer to this for the attributes in the above - http://rfunction.com/archives/1302
