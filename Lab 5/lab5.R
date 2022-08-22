@@ -44,3 +44,62 @@ ggplot(data, aes(x = hours_spent, y = high_score, color = age_group)) +
 
 
 #======================================================================
+
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point(aes(colour = factor(cyl))) + 
+  labs(
+    x = "Engine displacement (litres)", 
+    y = "Highway miles per gallon", 
+    colour = "Number of cylinders",
+    title = "Mileage by engine size and cylinders",
+    subtitle = "Source: http://fueleconomy.gov"
+  )
+
+
+values <- seq(from = -2, to = 2, by = .01)
+df <- data.frame(x = values, y = values ^ 3)
+ggplot(df, aes(x, y)) + 
+  geom_path() + 
+  labs(y = quote(f(x) == x^3))
+
+df <- data.frame(trt = c("a", "b", "c"), resp = c(1.2, 3.4, 2.5))
+ggplot(df, aes(resp, trt)) + 
+  geom_point() + 
+  geom_text(aes(label = paste0("(", resp, ")")), nudge_y = -0.25) + 
+  xlim(1, 3.6)
+
+#one of the parameter is check_overlap. 
+#If check_overlap = TRUE, overlapping labels 
+#will be automatically removed from the plot. 
+#The algorithm is simple: labels are plotted in 
+#the order they appear in the data frame; 
+#if a label would overlap with an existing point, 
+#it’s omitted.
+
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_text(aes(label = model)) + 
+  xlim(1, 8)
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_text(aes(label = model), check_overlap = TRUE) + 
+  xlim(1, 8)
+
+#At first glance this feature does not appear very useful, 
+#but the simplicity of the algorithm comes in handy. 
+#If you sort the input data in order of priority the 
+#result is a plot with labels that emphasise important 
+#data points.
+
+#A variation on geom_text() is geom_label(): 
+#it draws a rounded rectangle behind the text. 
+#This makes it useful for adding labels to plots with 
+#busy backgrounds:
+
+label <- data.frame(
+  waiting = c(55, 80), 
+  eruptions = c(2, 4.3), 
+  label = c("peak one", "peak two")
+)
+
+ggplot(faithfuld, aes(waiting, eruptions)) +
+  geom_tile(aes(fill = density)) + 
+  geom_label(data = label, aes(label = label))
