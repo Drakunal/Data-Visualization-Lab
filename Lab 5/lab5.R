@@ -29,3 +29,18 @@ ggplot(data, aes(hours_spent, high_score)) +
 ?geom_label_repel
 
 #======================================================
+
+age_group <- c('A','B','A','B','A')
+data$age_group <- age_group
+
+data
+
+
+ggplot(data, aes(x = hours_spent, y = high_score, color = age_group)) +
+  geom_line() +
+  geom_label_repel(aes(label = age_group),
+                    nudge_x = .75) +
+  theme(legend.position = "none")
+
+
+#======================================================================
