@@ -8,13 +8,13 @@ ui <- fluidPage(
   titlePanel("Ozone level!"),
   
   # Sidebar layout with input and output definitions ----
-  sidebarLayout(
+  # sidebarLayout(
     
     # Sidebar panel for inputs ----
     sidebarPanel(
       
       # Input: Slider for the number of bins ----
-      sliderInput(inputId = "bins",
+      sliderInput(inputId ="bins",
                   label = "Number of bins:",
                   min = 1,
                   max = 50,
@@ -29,7 +29,7 @@ ui <- fluidPage(
       plotOutput(outputId = "distPlot")
       
     )
-  )
+  # )
 )
 
 # Define server logic required to draw a histogram ----

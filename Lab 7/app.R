@@ -2,7 +2,7 @@
 library(shiny)
 library(shinythemes)
 library(data.table)
-library(RCurl)
+#library(RCurl)
 library(randomForest)
 
 # Read data
